@@ -10,7 +10,9 @@ module.exports = function(app) {
 
   // Insert routes below
   app.use('/api/threads', require('./api/thread'));
+  app.use('/api/posts', require('./api/post'));
   app.use('/api/users', require('./api/user'));
+
 
   app.use('/auth', require('./auth'));
 

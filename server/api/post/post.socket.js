@@ -4,21 +4,21 @@
 
 'use strict';
 
-var thread = require('./thread.model');
+var post = require('./post.model');
 
 exports.register = function(socket) {
-  thread.schema.post('save', function (doc) {
+  post.schema.post('save', function (doc) {
     onSave(socket, doc);
   });
-  thread.schema.post('remove', function (doc) {
+  post.schema.post('remove', function (doc) {
     onRemove(socket, doc);
   });
 }
 
 function onSave(socket, doc, cb) {
-  socket.emit('thread:save', doc);
+  socket.emit('post:'+doc._id+':save', doc);
 }
 
 function onRemove(socket, doc, cb) {
-  socket.emit('thread:remove', doc);
+  socket.emit('post:'+doc._id+':remove', doc);
 }

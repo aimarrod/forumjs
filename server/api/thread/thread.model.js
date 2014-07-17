@@ -5,7 +5,8 @@ var mongoose = require('mongoose'),
 
 var ThreadSchema = new Schema({
   title: String,
-  author: { type: Schema.Types.ObjectId, ref: 'User' }
+  author: { type: Schema.Types.ObjectId, ref: 'User' },
+  posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }]
 });
 
 module.exports = mongoose.model('Thread', ThreadSchema);
