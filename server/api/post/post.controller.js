@@ -14,7 +14,7 @@ var Post = require('./post.model');
 
 // Get list of Posts
 exports.index = function(req, res) {
-  Post.find().populate('author').exec(function (err, posts) {
+  Post.find({thread: req.params.id}).populate('author').exec(function (err, posts) {
     if(err) { return handleError(res, err); }
     return res.json(200, posts);
   });

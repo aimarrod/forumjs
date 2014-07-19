@@ -11,6 +11,7 @@
 
 var _ = require('lodash');
 var Thread = require('./thread.model');
+var Post = require('../post/post.model');
 
 // Get list of Threads
 exports.index = function(req, res) {
