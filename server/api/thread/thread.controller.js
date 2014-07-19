@@ -22,7 +22,7 @@ exports.index = function(req, res) {
 
 // Get a single Thread
 exports.show = function(req, res) {
-  Thread.findById(req.params.id, function (err, thread) {
+  Thread.findById(req.params.id).populate('author posts').exec( function (err, thread) {
     if(err) { return handleError(res, err); }
     if(!thread) { return res.send(404); }
     return res.json(thread);
