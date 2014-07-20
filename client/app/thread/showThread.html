@@ -6,8 +6,8 @@
 		</div>
 	</div>
 	<div class="row">
-		<ul>
-			<li ng-repeat="post in thread.posts">
+		<ul class="list-group">
+			<li class="list-group-item"ng-repeat="post in thread.posts">
 				<div class="row">
 					<div class="col-md-4">{{post.author.name}}</div>
 					<div class="col-md-8">{{post.text}}</div>

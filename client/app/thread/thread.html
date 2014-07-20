@@ -8,6 +8,7 @@
 			<button type="button" ui-sref="newThread" class="btn btn-success btn-lg pull-right">New Thread</button>
 		</div>
 	</div>
-	<ul></ul>
-	<li ng-repeat="thread in threads">a</li>
+	<ul class="list-group">
+		<li class="list-group-item" ng-repeat="thread in threads"><a ui-sref="showThread({id: thread._id})">{{thread.title}}</a></li>
+	</ul>
 </div>
