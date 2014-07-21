@@ -22,7 +22,7 @@ angular.module('forumjsApp')
         });
       }
     };
-
+    //For twitter, facebook, google...
     $scope.loginOauth = function(provider) {
       $window.location.href = '/auth/' + provider;
     };

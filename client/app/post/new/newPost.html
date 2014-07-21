@@ -1,0 +1,21 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+
+<h3>New post</h3>
+<div class="container">
+  <form class="form" name="form" ng-submit="createPost(form)" novalidate> 
+    <div class="form-group">
+      <label>Post</label>
+      <textarea type="text" name="description" class="form-control" rows="4" ng-model="post.text"
+             required>
+      </textarea>
+      <p class="help-block" ng-show="form.description.$error.required && submitted">
+        A post is required
+      </p>
+    </div>  
+    <div class="form-actions">
+    	<button type="submit" class="btn btn-primary"> Create </button>
+    	<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

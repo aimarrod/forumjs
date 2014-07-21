@@ -5,6 +5,10 @@ angular.module('forumjsApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
+    },
+    {
+      'title': 'Threads',
+      'link': '/threads'
     }];
 
     $scope.isCollapsed = true;

@@ -5,17 +5,17 @@ angular.module('forumjsApp')
     $stateProvider
       .state('threads', {
         url: '/threads',
-        templateUrl: 'app/thread/thread.html',
+        templateUrl: 'app/thread/main/thread.html',
         controller: 'ThreadCtrl'
       })
       .state('newThread', {
         url: '/newThread',
-        templateUrl: 'app/thread/newThread.html',
+        templateUrl: 'app/thread/new/newThread.html',
         controller: 'NewThreadCtrl'
       })
       .state('showThread', {
         url: '/showThread/{id}',
-        templateUrl: 'app/thread/showThread.html',
+        templateUrl: 'app/thread/show/showThread.html',
         controller: 'ShowThreadCtrl'
       });
   });

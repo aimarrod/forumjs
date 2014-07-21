@@ -1,0 +1,50 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>{{thread.title}}</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<input type="search"
+   			class="form-control" 
+   			placeholder="Search"
+   			ng-model="searchText"
+   			 />
+		</div>
+	</div>
+	<div class="row">
+		<ul class="list-group">
+			<li class="list-group-item"ng-repeat="post in thread.posts | filter:searchText">
+				<div class="row">
+					<div class="col-md-8"></div>
+					<div class="col-md-2">
+						<button ng-show="isLoggedIn() && !post.userHasVoted" type="button" class="btn btn-default " ng-click="addVote($index)">
+                            <span>
+                                <i class="fa fa-thumbs-o-up"></i>
+                                <i ng-show="post.userHasVoted"class="fa fa-thumbs-up"></i>
+                            </span>
+                        </button>
+                        <button ng-show="isLoggedIn() && post.userHasVoted" type="button" class="btn btn-default " ng-click="removeVote($index)">
+                            <span>
+                                <i class="fa fa-thumbs-up"></i>
+                            </span>
+                        </button>
+					</div>
+					<div class="col-md-2">
+						<h4 ><span class="label label-danger"ng-if="post.voters.length == 0" >0</span>
+						<span class="label label-success"ng-if="post.voters.length != 0" >{{post.voters.length}}</span></h4>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">{{post.author.name}}</div>
+					<div class="col-md-8">{{post.text}}</div>
+				</div>
+			</li>
+		</ul>
+		<button type="button" ng-model="predicate" ng-click="orderByNote()" class="btn btn-success ">Order by votes</button>
+		<button type="button" ng-show="isLoggedIn()" ui-sref="newPost({id: thread._id})" class="btn btn-success btn-lg pull-right">New Post</button>
+	</div>
+
+</div>

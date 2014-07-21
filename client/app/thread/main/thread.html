@@ -5,7 +5,7 @@
 			<h1>Threads</h1>
 		</div>
 		<div class="col-md-2">
-			<button type="button" ui-sref="newThread" class="btn btn-success btn-lg pull-right">New Thread</button>
+			<button type="button" ng-show="isLoggedIn()" ui-sref="newThread" class="btn btn-success btn-lg pull-right">New Thread</button>
 		</div>
 	</div>
 	<ul class="list-group">

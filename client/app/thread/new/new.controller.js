@@ -1,11 +1,3 @@
-'use strict';
-
-angular.module('forumjsApp')
-  .controller('ThreadCtrl', function ($scope, $http, socket,$state) {
-    $http.get('/api/threads').success(function(threads) {
-      $scope.threads = threads;
-    });
-  });
 
 angular.module('forumjsApp')
 .controller('NewThreadCtrl', function ($scope, $http, socket, $state,Auth) {
@@ -23,15 +15,4 @@ angular.module('forumjsApp')
   		});
     }
 	};
-});
-
-angular.module('forumjsApp')
-.controller('ShowThreadCtrl', function ($scope, $http,$stateParams, socket, Auth) {
-	$scope.thread={};
-	$http.get('/api/threads/'+$stateParams.id).success(function(thread) {
-    $scope.thread = thread;
-    $http.get('/api/posts/'+$stateParams.id).success(function(posts) {
-      thread.posts=posts;
-    });
-  });
 });

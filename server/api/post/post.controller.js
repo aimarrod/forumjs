@@ -42,7 +42,7 @@ exports.vote = function(req, res) {
   Post.findById(req.params.id, function (err, post) {
     if (err) { return handleError(err); }
     if(!post) { return res.send(404); }
-    post.voters.put(req.user._id);
+    post.voters.push(req.user._id);
     post.save(function (err) {
       if (err) { return handleError(err); }
       return res.json(200, post);
